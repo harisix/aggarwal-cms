@@ -46,7 +46,7 @@ class MedicosBanners extends React.Component {
     this.getProducts();  
   }
   getProducts() {
-    axios.get('http://35.200.191.243:8080/v1.0/referenceData')
+    axios.get('http://35.200.158.71:8080/v1.0/referenceData')
       .then(response => {
         this.close();
         this.setState({
@@ -138,7 +138,7 @@ class MedicosBanners extends React.Component {
     e.preventDefault();
     const { price, currentItem, offerPrice, productName, imageBin, category1, category2, category3, category4, prodInject, quantityInStock, status } = this.state;
     if(prodInject === "edit") {
-      axios.put('http://35.200.191.243:8080/v1.0/referenceData/'+currentItem.itemId, {
+      axios.put('http://35.200.158.71:8080/v1.0/referenceData/'+currentItem.itemId, {
         "itemId": currentItem.itemId,
         "itemName": productName,
         "itemDesc": currentItem.itemDesc,
@@ -161,7 +161,7 @@ class MedicosBanners extends React.Component {
           this.getProducts();
         });
     } else {
-      axios.post('http://35.200.191.243:8080/v1.0/referenceData', {
+      axios.post('http://35.200.158.71:8080/v1.0/referenceData', {
         "itemName": productName,
         "itemDesc": "",
         "itemImage": imageBin === ""?"":imageBin,

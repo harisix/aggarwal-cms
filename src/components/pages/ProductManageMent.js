@@ -47,7 +47,7 @@ class ProductManagement extends React.Component {
     this.getProducts();  
   }
   getProducts() {
-    axios.get('http://35.200.191.243:8080/v1.0/product')
+    axios.get('http://35.200.158.71:8080/v1.0/product')
       .then(response => {
         this.close();
         this.setState({
@@ -171,7 +171,7 @@ class ProductManagement extends React.Component {
           "unit": unit,
           "unitType": "KILOGRAM",
         }].concat(newStocks);
-      axios.put('http://35.200.191.243:8080/v1.0/product/'+currentItem.itemId, {
+      axios.put('http://35.200.158.71:8080/v1.0/product/'+currentItem.itemId, {
         "itemId": currentItem.itemId,
         "itemName": productName,
         "itemDesc": currentItem.itemDesc,
@@ -202,7 +202,7 @@ class ProductManagement extends React.Component {
           "unit": unit,
           "unitType": "KILOGRAM",
         }].concat(newStocks);
-      axios.post('http://35.200.191.243:8080/v1.0/product', {
+      axios.post('http://35.200.158.71:8080/v1.0/product', {
         "itemName": productName,
         "itemDesc": "",
         "itemImage": imageBin === ""?"":imageBin,

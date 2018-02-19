@@ -35,7 +35,7 @@ class ModalWrap extends React.Component {
     const category2 = [];
     const category3 = [];
     const category4 = [];
-    axios.get('http://35.200.191.243:8080/v1.0/category')
+    axios.get('http://35.200.158.71:8080/v1.0/category')
       .then(response => {
         response.data.categories.filter(el => {
           category1.push(el.name);

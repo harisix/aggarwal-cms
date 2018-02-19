@@ -27,7 +27,7 @@ class SalesmanManagement extends React.Component {
     this.getData();
   }
   getData() {
-    axios.get('http://35.200.191.243:8080/v1.0/seller')
+    axios.get('http://35.200.158.71:8080/v1.0/seller')
       .then(response => {
         this.setState({
           data:response.data.regionList
@@ -56,7 +56,7 @@ class SalesmanManagement extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    axios.put('http://35.200.191.243:8080/v1.0/referenceData', {
+    axios.put('http://35.200.158.71:8080/v1.0/referenceData', {
       "regionList":[
         {
           "name":this.state.regionName,

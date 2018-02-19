@@ -46,7 +46,7 @@ class CustomerManagement extends React.Component {
     this.getProducts();  
   }
   getProducts() {
-    axios.get('http://35.200.191.243:8080/v1.0/customer')
+    axios.get('http://35.200.158.71:8080/v1.0/customer')
       .then(response => {
         this.close();
         this.setState({
@@ -134,7 +134,7 @@ class CustomerManagement extends React.Component {
     e.preventDefault();
     const { price, currentItem, offerPrice, productName, imageBin, category1, category2, category3, category4, prodInject, quantityInStock, status } = this.state;
     if(prodInject === "edit") {
-      axios.put('http://35.200.191.243:8080/v1.0/customer/'+currentItem.itemId, {
+      axios.put('http://35.200.158.71:8080/v1.0/customer/'+currentItem.itemId, {
         "itemId": currentItem.itemId,
         "itemName": productName,
         "itemDesc": currentItem.itemDesc,
@@ -156,7 +156,7 @@ class CustomerManagement extends React.Component {
           this.getProducts();
         });
     } else {
-      axios.post('http://35.200.191.243:8080/v1.0/customer', {
+      axios.post('http://35.200.158.71:8080/v1.0/customer', {
         "itemName": productName,
         "itemDesc": "",
         "price": price,

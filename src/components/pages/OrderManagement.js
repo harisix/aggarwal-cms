@@ -47,7 +47,7 @@ class OrderManagement extends React.Component {
     };
   }
   componentDidMount() {
-    axios.get('http://35.200.191.243:8080/v1.0/order',  { auth:{username: '7373478346',password: 'Password1'}})
+    axios.get('http://35.200.158.71:8080/v1.0/order',  { auth:{username: '7373478346',password: 'Password1'}})
       .then(response => {
         this.setState({
           data:response.data

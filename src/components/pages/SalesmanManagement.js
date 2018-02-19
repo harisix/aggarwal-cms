@@ -46,7 +46,7 @@ class SalesmanManagement extends React.Component {
     this.getProducts();  
   }
   getProducts() {
-    axios.get('http://35.200.191.243:8080/v1.0/seller')
+    axios.get('http://35.200.158.71:8080/v1.0/seller')
       .then(response => {
         this.close();
         this.setState({
@@ -134,7 +134,7 @@ class SalesmanManagement extends React.Component {
     e.preventDefault();
     const { price, currentItem, offerPrice, productName, imageBin, category1, category2, category3, category4, prodInject, quantityInStock, status } = this.state;
     if(prodInject === "edit") {
-      axios.put('http://35.200.191.243:8080/v1.0/product/'+currentItem.itemId, {
+      axios.put('http://35.200.158.71:8080/v1.0/product/'+currentItem.itemId, {
         "itemId": currentItem.itemId,
         "itemName": productName,
         "itemDesc": currentItem.itemDesc,
@@ -156,7 +156,7 @@ class SalesmanManagement extends React.Component {
           this.getProducts();
         });
     } else {
-      axios.post('http://35.200.191.243:8080/v1.0/seller', {
+      axios.post('http://35.200.158.71:8080/v1.0/seller', {
         "itemName": productName,
         "itemDesc": "",
         "price": price,

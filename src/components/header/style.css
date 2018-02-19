@@ -1,0 +1,91 @@
+header {
+	padding:12px 0px;
+	margin-bottom: 30px;
+	border-bottom: 3px solid #395ddd;
+	position: relative;
+	    background: #ffffff;
+}
+body{ background: #f5f5f5;}
+.menuIcon {
+	position: absolute;
+	left: 15px;
+	top: 50%;
+	margin-top:-12px;
+	font-size: 24px;
+	cursor: pointer;
+	color:#395ddd;
+}
+.menu{color: #ffffff73;
+    font-size: 13px;
+    text-transform: uppercase; display:block;padding:17px 0 40px 25px;}
+.closeIcon {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	cursor: pointer;
+	color:#ffffff;
+}
+.logo_login{display:block; margin:0 auto; width:40px;}
+.logout{float: right;
+    margin: 13px 25px 0 0;
+    font-size: 19px;
+    color: #ef3b3b;}
+.sideNav {
+	background-color: #0d173c;
+	width: 270px;
+	position: fixed;
+	bottom: 0px;
+	top:0px;
+
+	left: -270px;
+	border-right: 1px solid rgba(0, 0, 0, 0.05);
+	z-index: 1000;
+	transition: left 0.3s ease-in-out;
+}
+.sideNav.active {
+	left: 0px;
+	
+}
+.sideNav ul {
+	border-top: 1px solid rgba(0, 0, 0, 0.05);
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+.sideNav ul ul {
+	max-height: 0px;
+	overflow: hidden;
+	transition: max-height 0.3s ease-in-out;
+}
+.sideNav ul ul.subOpen {
+	max-height: 300px;
+	
+}
+.admin{color:#395ddd;font-size: 20px;
+    margin: 12px 23px 0 0;
+    float: right;}
+.sideNav li {
+	border-bottom: 1px solid #ffffff11;
+}
+.sideNav li:hover a {
+	color: #f7aa23;
+}
+.sideNav a {
+	display: block;
+	color: #ffffff;
+	padding: 15px 15px 15px 26px;
+	position: relative;
+	    text-decoration: none;
+}
+.sideNav a a {
+	color: #ffffff;
+}
+.sideNav a i {
+	position: absolute;
+	right: 10px;
+	top: 20px;
+}
+.btn-info{ 
+	background-color: #395ddd !important;
+    border-color: #395ddd !important;
+}

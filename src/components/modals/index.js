@@ -18,7 +18,7 @@ class ModalWrap extends React.Component {
         offerPrice:"",
         quantityInStock:"",
         unit:"",
-        unitType:""
+        unitType:"",
       }],
       selected: '',
     }
@@ -86,7 +86,7 @@ class ModalWrap extends React.Component {
   }
   handleAddNewStocks() {
     this.setState({ stocks: this.state.stocks.concat([{ price: '', offerPrice:"",
-        quantityInStock:"", unit:"", unitType:"" }]) });
+        quantityInStock:"", unit:"", unitType:"", }]) });
   }
   render() {
     const { showModal, stateField, title } = this.props;
@@ -185,6 +185,14 @@ class ModalWrap extends React.Component {
               </Col>
               <Col sm={7}>
                 <FormControl value={stateField.unit} name="unit" type="text" placeholder="unit" onChange={this.handleChange} />
+              </Col>
+            </FormGroup>
+            <FormGroup>
+              <Col componentClass={ControlLabel} sm={3}>
+                UnitType
+              </Col>
+              <Col sm={7}>
+                <FormControl value={stateField.unitType} name="unitType" type="text" placeholder="unitType" onChange={this.handleChange} />
               </Col>
             </FormGroup>
           </div>

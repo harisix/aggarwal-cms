@@ -73,7 +73,6 @@ class LevelOneSubCategory extends React.Component {
     });   
   }
   editRowHandler(cell, row) {
-    console.log(row);
     this.setState({
       modalLabel:"Category",
       categoryname:row.name,
@@ -90,7 +89,7 @@ class LevelOneSubCategory extends React.Component {
       maincategory:'',
       submain:'',
       showModal:true
-    })
+    });
   }
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
@@ -115,6 +114,7 @@ class LevelOneSubCategory extends React.Component {
   renderBtns(cell, row) {
     return <button onClick={() => this.editRowHandler(cell, row)} className='btn btn-info react-bs-table-add-btn'><i className="fa glyphicon glyphicon-edit fa-edit"></i> edit</button>
   }
+  
   render() {
     const { data, modalLabel } = this.state;
     return (<div>

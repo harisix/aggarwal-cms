@@ -28,6 +28,7 @@ class ProductManagement extends React.Component {
       prodInject:'',
       quantityInStock:'',
       unit:'',
+      unitType:'',
       status:'',
       currentItem:{},
       imageBin:'',
@@ -81,26 +82,28 @@ class ProductManagement extends React.Component {
       status:"", 
       currentItem:"", 
       offerPrice:"", 
-      productName:row.itemName,
+      productName:"",
       imageBin:'',
+      unitType: "",
       modalLabel:"Add product",
       stocks: [{
         price:"",
         offerPrice:"",
         quantityInStock:"",
         "unit": "",
-        "unitType": "KILOGRAM",
+        "unitType": "",
       },
       {
         price:"",
         offerPrice:"",
         quantityInStock:"",
         "unit": "",
-        "unitType": "KILOGRAM",
+        "unitType": "",
       }]
     })
   }
   editRowHandler(cell, row) {
+    console.log(row);
     this.setState({
       prodInject:'edit',
       modalLabel:"Edit product",
@@ -116,19 +119,20 @@ class ProductManagement extends React.Component {
       category4:row.category4,
       status:row.status,
       showModal:true,
+      unitType: row.unitType,
       stocks: [{
         price:row.price,
         offerPrice:row.offerPrice,
         quantityInStock:row.quantityInStock,
         "unit": row.unit,
-        "unitType": "KILOGRAM",
+        "unitType": row.unitType,
       },
       {
         price:row.price,
         offerPrice:row.offerPrice,
         quantityInStock:row.quantityInStock,
         "unit": row.unit,
-        "unitType": "KILOGRAM",
+        "unitType": row.unitType,
       }]
     });
   }
@@ -162,14 +166,14 @@ class ProductManagement extends React.Component {
 
   handleSubmit(e, newStocks) {
     e.preventDefault();
-    const { price, currentItem, offerPrice, productName, imageBin, category1, category2, category3, category4, prodInject, quantityInStock, unit, status } = this.state;
+    const { price, currentItem, offerPrice, productName, imageBin, category1, category2, category3, category4, prodInject, quantityInStock, unit, unitType, status } = this.state;
     if(prodInject === "edit") {
       const stocks = [{
           "price": price,
           "offerPrice": offerPrice,
           "quantityInStock": quantityInStock,
           "unit": unit,
-          "unitType": "KILOGRAM",
+          "unitType": unitType,
         }].concat(newStocks);
       axios.put('http://35.200.158.71:8080/v1.0/product/'+currentItem.itemId, {
         "itemId": currentItem.itemId,
@@ -187,7 +191,7 @@ class ProductManagement extends React.Component {
         "quantityInStock": quantityInStock,
         "validTill": currentItem.validTill,
         "unit": currentItem.unit,
-        "unitType": "KILOGRAM",
+        "unitType": currentItem.unitType,
         "status": status,
         "stocks": stocks
       })
@@ -200,7 +204,7 @@ class ProductManagement extends React.Component {
           "offerPrice": offerPrice,
           "quantityInStock": quantityInStock,
           "unit": unit,
-          "unitType": "KILOGRAM",
+          "unitType": unitType,
         }].concat(newStocks);
       axios.post('http://35.200.158.71:8080/v1.0/product', {
         "itemName": productName,
@@ -216,7 +220,7 @@ class ProductManagement extends React.Component {
         "category4": category4,
         "quantityInStock": quantityInStock,
         "unit": unit,
-        "unitType": "KILOGRAM",
+        "unitType": unitType,
         "status": status,
         "stocks": stocks
       })

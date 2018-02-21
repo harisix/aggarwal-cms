@@ -47,6 +47,7 @@ class RegionManagement extends React.Component {
     return <span>{this.state.indCountSize}</span>;
   }
   editRowHandler(cell, row) {
+    console.log(row);
     this.setState({
       regionName:row.name,
       sellerId:row.sellerId,

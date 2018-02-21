@@ -1,7 +1,7 @@
 import React from "react";
 import axios from 'axios';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-import Modal from '../modals';
+import Modal from '../modals/salesman';
 import Header from '../header';
 
 
@@ -85,6 +85,7 @@ class SalesmanManagement extends React.Component {
     })
   }
   editRowHandler(cell, row) {
+    console.log(row);
     this.setState({
       prodInject:'edit',
       modalLabel:"Edit product",

@@ -19,20 +19,12 @@ class SalesmanManagement extends React.Component {
     super(props);
     this.state = {
       data:[],
-      productName:'',
-      price:'',
-      category1:'',
-      category2:'',
-      category3:'',
-      category4:'',
-      prodInject:'',
-      quantityInStock:'',
-      status:'',
+      regionName:"",
+      sellerId:"",
+      id:"",
       currentItem:{},
-      imageBin:'',
-      offerPrice:'',
-      modalLabel:'',
-      showModal: false
+      indCountSize:0,
+      showModal:false
     };
     this.editRowHandler = this.editRowHandler.bind(this);
     this.close = this.close.bind(this);
@@ -68,7 +60,6 @@ class SalesmanManagement extends React.Component {
   }
   addProduct() {
     this.setState({
-      prodInject:'add',
       showModal:true,
       quantityInStock:"",
       category1:"",
@@ -85,21 +76,11 @@ class SalesmanManagement extends React.Component {
     })
   }
   editRowHandler(cell, row) {
-    console.log(row);
     this.setState({
       prodInject:'edit',
-      modalLabel:"Edit product",
-      productName:row.itemName,
-      price:row.price,
-      offerPrice:row.offerPrice,
+      sellerName: row.sellerName,
       currentItem:row,
-      quantityInStock:row.quantityInStock,
-      category1:row.category1,
-      category2:row.category2,
-      category3:row.category3,
-      category4:row.category4,
-      status:row.status,
-      showModal:true
+      showModal:true,
     });
   }
   close() {
@@ -133,49 +114,15 @@ class SalesmanManagement extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { price, currentItem, offerPrice, productName, imageBin, category1, category2, category3, category4, prodInject, quantityInStock, status } = this.state;
+    const { price, currentItem, offerPrice, sellerName, imageBin, category1, category2, category3, category4, prodInject, quantityInStock, status } = this.state;
     if(prodInject === "edit") {
-      axios.put('http://35.200.158.71:8080/v1.0/product/'+currentItem.itemId, {
-        "itemId": currentItem.itemId,
-        "itemName": productName,
-        "itemDesc": currentItem.itemDesc,
-        "price": price,
-        "offerPrice": offerPrice,
-        "gst": currentItem.gst,
-        "priceWithGST": currentItem.priceWithGST,
-        "category1": category1,
-        "category2": category2,
-        "category3": category3,
-        "category4": category4,
-        "quantityInStock": quantityInStock,
-        "validTill": currentItem.validTill,
-        "unit": currentItem.unit,
-        "unitType": currentItem.unitType,
-        "status": status
+      axios.put('http://35.200.191.243:8080/v1.0/seller/'+currentItem.sellerId, {
+        "sellerId": currentItem.sellerId,
+        "sellerName": sellerName,
       })
-        .then(response => {
-          this.getProducts();
-        });
-    } else {
-      axios.post('http://35.200.158.71:8080/v1.0/seller', {
-        "itemName": productName,
-        "itemDesc": "",
-        "price": price,
-        "offerPrice": offerPrice,
-        "gst": 0,
-        "priceWithGST": 0,
-        "category1": category1,
-        "category2": category2,
-        "category3": category3,
-        "category4": category4,
-        "quantityInStock": quantityInStock,
-        "unit": 0,
-        "unitType": "KILOGRAM",
-        "status": status
-      })
-        .then(response => {
-          this.getProducts();
-        });
+      .then(response => {
+        this.getProducts();
+      });
     }
   }
 

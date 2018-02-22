@@ -31,7 +31,7 @@ class ModalWrap extends React.Component {
                   Region Name
                 </Col>
                 <Col sm={7}>
-                  <FormControl value={stateField.regionName} name="regionName" type="text" placeholder="Name" onChange={this.handleChange} />
+                  <FormControl value={stateField.sellerName} name="sellerName" type="text" placeholder="Name" onChange={this.handleChange} />
                 </Col>
               </FormGroup>
 

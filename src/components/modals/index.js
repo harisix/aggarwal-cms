@@ -77,16 +77,17 @@ class ModalWrap extends React.Component {
   }
 
   handleChangeStock = (idx) => (evt) => {
+    console.log(evt)
     const newStock = this.state.stocks.map((stocks, sidx) => {
       if (idx !== sidx) return stocks;
-      return { ...stocks, [evt.target.name]: evt.target.value };
+      return { ...stocks, [evt.target.name]: evt.target.value};
     });
     
     this.setState({ stocks: newStock });
   }
   handleAddNewStocks() {
     this.setState({ stocks: this.state.stocks.concat([{ price: '', offerPrice:"",
-        quantityInStock:"", unit:"", unitType:"", }]) });
+        quantityInStock:"", unitType:"", unit:""  }]) });
   }
   render() {
     const { showModal, stateField, title } = this.props;
@@ -192,7 +193,7 @@ class ModalWrap extends React.Component {
                 UnitType
               </Col>
               <Col sm={7}>
-                <FormControl value={stateField.unitType} name="unitType" type="text" placeholder="unitType" onChange={this.handleChange} />
+                <FormControl value={stateField.unitType1} name="unitType" type="text" placeholder="unitType" onChange={this.handleChange} />
               </Col>
             </FormGroup>
           </div>
@@ -232,6 +233,15 @@ class ModalWrap extends React.Component {
                 </Col>
                 <Col sm={7}>
                   <FormControl value={el.unit} name="unit" type="text" placeholder="unit" onChange={this.handleChangeStock(i)} />
+                </Col>
+              </FormGroup>
+
+              <FormGroup>
+                <Col componentClass={ControlLabel} sm={3}>
+                  UnitType
+                </Col>
+                <Col sm={7}>
+                  <FormControl value={stateField.unitType2} name="unitType" type="text" placeholder="unitefefefefType" onChange={this.handleChangeStock(i)} />
                 </Col>
               </FormGroup>
             </div>

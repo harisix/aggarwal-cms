@@ -27,8 +27,9 @@ class SalesmanManagement extends React.Component {
     this.getData();
   }
   getData() {
-    axios.get('http://35.200.158.71:8080/v1.0/seller')
+    axios.post('http://35.200.158.71:8080/v1.0/seller')
       .then(response => {
+        console.log(response);
         this.setState({
           data:response.data.regionList
         });

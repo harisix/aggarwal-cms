@@ -125,14 +125,14 @@ class ProductManagement extends React.Component {
         offerPrice:row.offerPrice,
         quantityInStock:row.quantityInStock,
         "unit": row.unit,
-        "unitType": row.unitType,
+        "unitType": row.unittype,
       },
       {
         price:row.price,
         offerPrice:row.offerPrice,
         quantityInStock:row.quantityInStock,
         "unit": row.unit,
-        "unitType": row.unitType,
+        "unitType": row.unittype,
       }]
     });
   }
